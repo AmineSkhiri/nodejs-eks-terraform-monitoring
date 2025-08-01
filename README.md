@@ -58,4 +58,4 @@ Use the LoadBalancer URL to access Grafana in your browser.
 ---
 
 ## Architecture
-![Monitoring Architecture](grafana.png)
+![Monitoring Architecture](Grafana.png)
