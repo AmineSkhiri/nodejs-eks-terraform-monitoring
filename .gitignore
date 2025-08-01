@@ -1,0 +1,39 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+.crash
+*.tfvars
+*.backup
+.terraform/
+.terraform.lock.hcl
+
+# Kubernetes
+.kube/
+*.yaml~ 
+*.yml~
+
+# AWS
+.aws/
+
+# Logs
+*.log
+
+# IDE/Editor
+.vscode/
+.idea/
+.DS_Store
+
+# Helm
+charts/
+
+# GitHub Actions artifacts
+*.out
+
+# Node modules (if you add any JS scripts later)
+node_modules/
+
+# Python virtual env (if you add scripts later)
+venv/
+
+# Miscellaneous
+.env
