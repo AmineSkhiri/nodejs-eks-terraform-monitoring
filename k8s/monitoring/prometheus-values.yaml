@@ -1,0 +1,7 @@
+alertmanager:
+  enabled: true
+
+grafana:
+  adminPassword: admin
+  service:
+    type: LoadBalancer

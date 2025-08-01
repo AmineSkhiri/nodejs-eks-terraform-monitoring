@@ -1,13 +1,11 @@
-# Terraform files
-*.tfstate
-*.tfstate.*
-.crash
-*.tfvars
-*.backup
-.terraform/
-.terraform.lock.hcl
 
-# Kubernetes
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+terraform/.terraform.lock.hcl
+
 .kube/
 *.yaml~ 
 *.yml~
