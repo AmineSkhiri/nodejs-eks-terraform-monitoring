@@ -1,77 +1,61 @@
-# DevOps Monitoring Project (Terraform + AWS EKS + Kubernetes + Prometheus + Grafana)
+# DevOps Monitoring Project (Terraform + AWS EKS + Prometheus + Grafana)
 
-This project sets up a complete **monitoring stack** using **Terraform**, **AWS EKS**, **Kubernetes**, **Prometheus**, **Grafana**, and **Alertmanager**.  
-It is designed to demonstrate **real-world DevOps skills**, including infrastructure as code, monitoring, alerting, and Kubernetes deployments.
+This project sets up a full monitoring stack using **Terraform**, **AWS EKS**, **Prometheus**, **Grafana**, and **Alertmanager**.
 
----
+## Features
+- AWS EKS cluster with Terraform
+- Kubernetes monitoring stack (Prometheus + Grafana)
+- Custom alerts and dashboards
+- Notifications with Alertmanager
+- CI/CD ready for integration
 
-## 🚀 Features
-- **Infrastructure as Code**: AWS EKS cluster provisioned using Terraform.
-- **Kubernetes Monitoring**: Prometheus for metrics collection, Grafana for visualization.
-- **Alerting**: Configured Alertmanager for custom alerts.
-- **Dashboards**: Pre-configured Grafana dashboards for Kubernetes, Nodes, and Applications.
-- **CI/CD Integration**: GitHub Actions workflow for automated Terraform and Helm deployments.
+## Setup Instructions
 
----
-
-## 🏗️ Architecture
-Terraform → AWS EKS Cluster (Kubernetes)
-→ Helm (kube-prometheus-stack)
-→ Prometheus → Metrics Collection
-→ Grafana → Dashboards
-→ Alertmanager → Notifications
-
-yaml
-Copier
-Modifier
-
----
-
-## ⚙️ Setup Instructions
-
-### 1️⃣ Clone the repository
+### 1. Clone the repository
 ```bash
 git clone https://github.com/your-username/nodejs-eks-terraform-monitoring.git
 cd nodejs-eks-terraform-monitoring
-2️⃣ Provision Infrastructure (EKS Cluster)
-bash
-Copier
-Modifier
+```
+
+### 2. Provision Infrastructure (EKS Cluster)
+```bash
 cd terraform
 terraform init
 terraform apply
-3️⃣ Configure kubectl
-bash
-Copier
-Modifier
+```
+
+### 3. Configure kubectl
+```bash
 aws eks update-kubeconfig --region us-east-1 --name devops-monitoring-cluster
-4️⃣ Deploy Monitoring Stack
-bash
-Copier
-Modifier
+```
+
+### 4. Deploy Monitoring Stack
+```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
 helm upgrade --install monitoring prometheus-community/kube-prometheus-stack -f k8s/monitoring/prometheus-values.yaml
-5️⃣ Verify Deployment
-bash
-Copier
-Modifier
+```
+
+### 5. Verify Deployment
+```bash
 kubectl --namespace monitoring get pods
-📊 Grafana Access
-Username: admin
+```
 
-Password:
-
-bash
-Copier
-Modifier
+### 6. Grafana Access
+**Username:** admin  
+**Password:**
+```bash
 kubectl get secret monitoring-grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 -d
-URL:
+```
 
-bash
-Copier
-Modifier
+**URL:**
+```bash
 kubectl get svc monitoring-grafana -n monitoring
-Use the LoadBalancer URL to access Grafana in the browser.
+```
 
-![alt text](grafana.png)
+Use the LoadBalancer URL to access Grafana in your browser.
+
+---
+
+## Architecture
+![Monitoring Architecture](grafana.png)
